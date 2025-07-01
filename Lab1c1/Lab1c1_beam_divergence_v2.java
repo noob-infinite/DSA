@@ -1,7 +1,8 @@
 package Lab1c1;
 
 public class Lab1c1_beam_divergence_v2 {
-    static void intervals(int n, int [] data) {
+    static void intervals(int n, int [] data) { 
+        // sort then merge
         //evemathcomp
     }
     static int set_n_count(int n, int [] data) { 
