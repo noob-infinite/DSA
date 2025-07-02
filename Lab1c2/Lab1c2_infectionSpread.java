@@ -25,7 +25,8 @@ public class Lab1c2_infectionSpread {
         int n = sc.nextInt(); // rows
         int m = sc.nextInt(); // cols
         int k = sc.nextInt(); // initially infected count
-
+        sc.close();
+        
         int[][] grid = new int[n][m];
         Queue<Cell> queue = new LinkedList<>();
 
