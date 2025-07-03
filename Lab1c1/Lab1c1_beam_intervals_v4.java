@@ -17,7 +17,8 @@ public static List<int[]> mergeBeams(List<int[]> beams) {
 
         if (start == end) {
             // Special case: beam covers the entire circle
-            return List.of(new int[]{0, 0});
+            // return List.of(new int[]{0, 0});
+            return List.of(new int[]{start, end}); // preferred than {0,0}
         } else if (start < end) {
             // Normal beam
             linearized.add(new int[]{start, end});
@@ -44,17 +45,18 @@ public static List<int[]> mergeBeams(List<int[]> beams) {
             current = next;
         }
     }
-    merged.add(current); // Add the final merged interval
+    merged.add(current); // either if or else
 
     // Map back to [0, 360)
     List<int[]> result = new ArrayList<>();
     for (int[] interval : merged) {
         int start = interval[0] % 360;
         int end = interval[1] % 360;
-        if (start == end) {
-            // Special case: merged back to full circle
-            return List.of(new int[]{0, 0});
-        }
+        // if (start == end) {
+        //     // Special case: merged back to full circle
+        //     //   case 3?
+        //     return List.of(new int[]{0, 0});
+        // } 
         result.add(new int[]{start, end});
     }
 
@@ -74,7 +76,7 @@ public static List<int[]> mergeBeams(List<int[]> beams) {
     static void demo_2() {
         List<int[]> beams = Arrays.asList(new int[]{70, 100},
             new int[]{150, 180},
-            new int[]{160, 185}, new int[] {350,60}
+            new int[]{160, 185}, new int[] {350,60}, new int[] {352, 356}
         ); 
         List<int[]> merged = mergeBeams(beams);
 
@@ -97,7 +99,7 @@ public static List<int[]> mergeBeams(List<int[]> beams) {
         //     new int[]{180, 30}
         // );
         // -illegal -> {10,210} + {180,30} overlapped on wrap around 
-        List<int[]> beams = Arrays.asList(new int[]{10, 10},
+        List<int[]> beams = Arrays.asList(new int[]{15, 25},
             new int[]{20, 20}
         );
         List<int[]> merged = mergeBeams(beams);
