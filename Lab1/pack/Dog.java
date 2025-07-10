@@ -1,4 +1,4 @@
-package Lab1a.pack;
+package Lab1.pack;
 
 public class Dog {
     private Breed breed;
