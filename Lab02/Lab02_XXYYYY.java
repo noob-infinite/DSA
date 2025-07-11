@@ -1,8 +1,8 @@
-package Lab2;
+package Lab02;
 
-import Lab2.pack.*;
+import Lab02.pack.*;
 
-public class Lab2_XXYYYY_sol {
+public class Lab02_XXYYYY {
     static int NN = 100_000;
     public static void main(String[] args) {
         testIsPrime012();

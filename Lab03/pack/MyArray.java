@@ -1,4 +1,4 @@
-package Lab3.pack;
+package Lab03.pack;
 
 public class MyArray extends MyArrayBasic{ 
     public MyArray(int capacity) {

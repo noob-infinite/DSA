@@ -1,4 +1,4 @@
-package Lab4.pack;
+package Lab04.pack;
 
 public class MyCirList {
     class Node {

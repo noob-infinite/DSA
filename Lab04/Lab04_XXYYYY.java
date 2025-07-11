@@ -1,8 +1,8 @@
-package Lab4;
+package Lab04;
 
-import Lab4.pack.*;
+import Lab04.pack.*;
 
-public class Lab4_XXYYYY_sol {
+public class Lab04_XXYYYY {
 
     static void demo_1() {
         System.out.println("demo1");

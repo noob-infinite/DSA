@@ -1,4 +1,4 @@
-package Lab1;
+package Lab01;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,10 +9,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
 
-import Lab1.pack.Breed;
-import Lab1.pack.Dog;
+// import Lab1.pack.Breed;
+// import Lab1.pack.Dog;
 
-public class Lab1_XXYYYY_Sol {
+public class Lab01_XXYYYY {
     public static void main(String[] args) {
         // task1();
         // task2();
@@ -20,7 +20,7 @@ public class Lab1_XXYYYY_Sol {
         // task4();
         // task5();
         // task6();
-        task7();
+        // task7();
     }
     static void task1() {
         // Given 2 arraylist of same type, Create an arraylist named q1List which contains all elements
@@ -30,9 +30,6 @@ public class Lab1_XXYYYY_Sol {
         List<String> lisB = Arrays.asList("Tulip", "Daisy");
         List<String> lisC;
         // your code begin
-        lisC = new ArrayList<>();
-        lisC.addAll(lisA);  
-        lisC.addAll(lisB);  
         // your code end  
         System.out.println(lisA); // [Lilly, Tulip]
         System.out.println(lisB); // [Tulip, Daisy]
@@ -57,8 +54,6 @@ public class Lab1_XXYYYY_Sol {
         System.out.println("-task3----");
         List<String> lis3 = Arrays.asList("Lily","Daisy","Tulip","Daisy");
         // your code begin
-        List<String> tmp = Arrays.asList(lis3.get(0));
-        lis3 = tmp;
         // your code end
         System.out.println(lis3);   // [Lily]
     }
@@ -85,7 +80,8 @@ public class Lab1_XXYYYY_Sol {
                                 new Dog(Breed.beagle, 2300), new Dog(Breed.jack,1440),
                                 new Dog(Breed.beagle, 2300)
                             );
-        System.out.println( new HashSet<>(lis5a).size() ); // 3
+        /* your code */
+        System.out.println( /* your code */ ); // 3
     }
     static void task6() { // count same elements
         System.out.println("-task6----");
@@ -95,14 +91,6 @@ public class Lab1_XXYYYY_Sol {
                             );
         HashMap<Breed,Integer> map = new HashMap<>();
         // your code begin
-        /* for (Dog d : lis6a) {
-            //  map.compute(d.myBreed(), (k, v) -> v == null ? 1 : v + 1);
-         */
-        for (Dog d : lis6a) { 
-            map.putIfAbsent(d.myBreed(), 0);
-            int cnt = map.get(d.myBreed());
-            map.put(d.myBreed(),cnt+1);
-        }
         // your code end
         for (Entry<Breed, Integer> ele : map.entrySet()) {
           System.out.println(ele.getKey() + "\t" + ele.getValue());   

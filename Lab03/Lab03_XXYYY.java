@@ -1,9 +1,9 @@
-package Lab3;
+package Lab03;
 
-import Lab3.pack.MyArray;
-import Lab3.pack.MyArrayBasic;
+import Lab03.pack.MyArray;
+import Lab03.pack.MyArrayBasic;
 
-public class Lab3_XXYYY_sol {
+public class Lab03_XXYYY {
     static private void arrayBasic_demo_1() {
         MyArrayBasic demo = new MyArrayBasic(7,6,8,1,2,3);
         System.out.println( demo );

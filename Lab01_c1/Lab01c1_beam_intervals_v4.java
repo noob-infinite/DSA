@@ -1,4 +1,4 @@
-package Lab1c1;
+package Lab01_c1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Lab1c1_beam_intervals_v4 {
+public class Lab01c1_beam_intervals_v4 {
 static List<int[]> solution(List<int[]> beams) {
     // if (beams.isEmpty()) return Collections.emptyList();
     // step 1 -> linearize
@@ -85,6 +85,7 @@ public static List<int[]> mergeBeams(List<int[]> beams) {
 
         if (current[1] >= next[0]) {
             // ✅ Merge overlapping intervals by extending the current one
+            next[1] = (next[1] - 360 >= current[0]) ? current[0] + 360 : next[1]; // wrap around beyond current[0]
             current[1] = Math.max(current[1], next[1]);
         } else {
             merged.add(current);
@@ -96,7 +97,7 @@ public static List<int[]> mergeBeams(List<int[]> beams) {
     // Map back to [0, 360)
     List<int[]> result = new ArrayList<>();
     for (int[] interval : merged) {
-        int start = interval[0] % 360;
+        int start = interval[0]  /* % 360 */;
         int end = interval[1] % 360;
         // if (start == end) {
         //     // Special case: merged back to full circle

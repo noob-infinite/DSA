@@ -1,4 +1,4 @@
-package Lab3.pack;
+package Lab03.pack;
 
 public class MyArrayBasic {
     protected int MAX_SIZE = 5;

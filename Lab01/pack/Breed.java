@@ -1,4 +1,4 @@
-package Lab1.pack;
+package Lab01.pack;
 
 public enum Breed {
     pomeranian,beagle,jack

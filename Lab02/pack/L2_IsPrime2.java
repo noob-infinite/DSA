@@ -1,4 +1,4 @@
-package Lab2.pack;
+package Lab02.pack;
 
 public class L2_IsPrime2 implements L2_IsPrimeInterface {
     @Override
