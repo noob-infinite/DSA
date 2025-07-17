@@ -47,6 +47,8 @@ public class MyCirList {
         size++;
     }
     public void remove(Node node) {
+        if (node == sentinel)   // likely not needed
+            return;
         node.prev.next = node.next;
         node.next.prev = node.prev;
         size--;
