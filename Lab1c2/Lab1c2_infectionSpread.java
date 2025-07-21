@@ -19,21 +19,15 @@ public class Lab1c2_infectionSpread {
     static final int[] DR = {-1, 1, 0, 0}; // directions: up, down, left, right
     static final int[] DC = {0, 0, -1, 1};
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt(); // rows
-        int m = sc.nextInt(); // cols
-        int k = sc.nextInt(); // initially infected count
-        sc.close();
-        
+    static int solution(int n, int m, List<int[]> infected) {
         int[][] grid = new int[n][m];
         Queue<Cell> queue = new LinkedList<>();
 
+        int k = infected.size();
         // Initialize infected cells at 100%
         for (int i = 0; i < k; i++) {
-            int r = sc.nextInt();
-            int c = sc.nextInt();
+            int r = (infected.get(i))[0];
+            int c = (infected.get(i))[1];
             grid[r][c] = 100;
             queue.add(new Cell(r, c, 0)); // level 0 means 100%
         }
@@ -72,6 +66,28 @@ public class Lab1c2_infectionSpread {
         }
 
         System.out.println("\nNumber of 0% infected cells: " + zeroCount);
+        return zeroCount;
+    }
+    static void demo_2() {
+        int n = 8, m = 9;
+        List<int[]> infected = new ArrayList<>();  
+        List<int []> tmp = Arrays.asList(new int[] {1,1}, new int[] {3,5}, new int [] {6,2}, new int [] {7,8});
+        infected.addAll(tmp);     
+        System.out.println(solution(n, m, infected)); // output = 11 
+    }
+    static void demo_1() {
+        int n = 4, m = 5;
+        List<int[]> infected = new ArrayList<>();
+        infected.add(new int[]{1, 1});
+        infected.add(new int[]{2, 3});
+
+        System.out.println(solution(n, m, infected)); // Output should be 2
+    }
+    public static void main(String[] args) {
+        demo_1();
+        System.out.println("xxxx");
+        demo_2();
+
     }
 }
 

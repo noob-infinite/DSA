@@ -1,8 +1,7 @@
 package Lab1c2;
 import java.util.*;
 //Contamination
-public class Lab1c2_contamination {
-
+public class Lab1c2_contamination { 
     static class Cell {
         int row, col;
         int level; // 0: 100%, 1: 80%, 2: 60%
@@ -61,14 +60,24 @@ public class Lab1c2_contamination {
 
         return clean;
     }
-
-    // Example usage
-    public static void main(String[] args) {
+    static void demo_2() {
+        int n = 8, m = 9;
+        List<int[]> infected = new ArrayList<>();  
+        List<int []> tmp = Arrays.asList(new int[] {1,1}, new int[] {3,5}, new int [] {6,2}, new int [] {7,8});
+        infected.addAll(tmp);     
+        System.out.println(solution(n, m, infected)); // output = 11 
+    }
+    static void demo_1() {
         int n = 4, m = 5;
         List<int[]> infected = new ArrayList<>();
         infected.add(new int[]{1, 1});
         infected.add(new int[]{2, 3});
 
         System.out.println(solution(n, m, infected)); // Output should be 2
+    }
+    // Example usage
+    public static void main(String[] args) {
+        demo_1();
+        demo_2();
     }
 }

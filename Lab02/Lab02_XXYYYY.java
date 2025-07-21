@@ -1,6 +1,6 @@
-package Lab02;
+// package Lab02;
 
-import Lab02.pack.*;
+import pack.*;
 
 public class Lab02_XXYYYY {
     static int NN = 100_000;
@@ -10,7 +10,7 @@ public class Lab02_XXYYYY {
         obj[0] = new IsPrime0();
         obj[1] = new IsPrime1();
         obj[2] = new IsPrime2();
-        for (int i = 0; i < 3; i++)
+        for (int i = 1; i < 3; i++) // for (int i = 0; i < 3; i++)
             bench_isPrime(obj[i]);
     }
     private static void testIsPrime012() {

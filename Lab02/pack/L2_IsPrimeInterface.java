@@ -1,4 +1,4 @@
-package Lab02.pack;
+package pack;
 
 public interface L2_IsPrimeInterface {
     boolean isPrime(int n);
