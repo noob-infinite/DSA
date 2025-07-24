@@ -42,7 +42,7 @@ public class MyLinkedList {
         return p.data;
     }
 
-    public void setAt(int d, int i) {
+    public void setAt(int i, int d) {
         Node p = head;
         while (i > 0) {
             p = p.next;
@@ -86,7 +86,30 @@ public class MyLinkedList {
     // public void delete(Node p) {
     //     p.next = p.next.next;
     // }
-
+    public void delete2(int d) {
+        // without dummie
+        if (head == null) return;
+        if (head.data == d) {
+            head = head.next;
+            size--;
+            return;
+        }
+        Node cur = head;
+        while (cur.next != null && cur.next.data != d) {
+            cur = cur.next;
+        }
+        if (cur.next == null) { 
+            // left of cur cannot be d
+            return;
+        }
+        if (cur.next.next == null) { // cur.next is tail
+            cur.next = null;
+            size--;
+            return;
+        }
+        cur.next = cur.next.next;
+        size--;
+    }
     public void delete(int d) {
         if (head == null)
             return;
@@ -100,7 +123,7 @@ public class MyLinkedList {
             p.next = p.next.next;
             size--;
         }
-        head = t.next;
+        head = t.next; // whether p is head or not
     }
 
     public void insert2(int d) {

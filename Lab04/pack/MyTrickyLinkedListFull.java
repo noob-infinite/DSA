@@ -1,10 +1,30 @@
 package Lab04.pack;
 
-public class MyTrickyLinkedList extends MyLinkedList {
+public class MyTrickyLinkedListFull extends MyLinkedList {
     
 
     public void q1_rotate_clockwise(int k) {
         q1(k);
+    }
+    private void rotate_size_minus_k(int k) {
+        // size() - k counter clockwise
+        if (k > this.size()) // for simplicity
+            return;
+        Node cur = head;
+        Node tail = head;
+        int i = 0;
+
+        while (i < k - 1) {
+            cur = cur.next;
+            i++;
+        }
+        tail = cur; // cur is left of new head
+        while (tail.next != null) {
+            tail = tail.next;
+        }
+        tail.next = head;
+        head = cur.next;
+        cur.next = null;
     }
     /* solution q1 */
     private void q1(int k) {
@@ -40,6 +60,46 @@ public class MyTrickyLinkedList extends MyLinkedList {
             loop from original list from head to append (newly created node with node's value) for the remaining
          */
     }
+    private void ex2_deleteNM(int m, int n) {
+        Node cur = head;
+        int i = 0;
+        while (i < m - 1) {
+            cur = cur.next;
+            i++;
+        }
+        Node nStep = cur;
+        i = 0;
+        while (i < n) {
+            nStep = nStep.next;
+            i++;
+        }
+        cur.next = nStep.next;
+        // System.out.println(cur.data);
+    }
+    private void ex3_alternate_merge(MyLinkedList operand) {
+        if (operand.head == null) {
+            return;
+        }
+        Node m_node = head; // master_node
+        Node prev = head;
+        Node op = operand.head;
+        operand.head = op.next;
+        Node next_op = null;
+        while (m_node != null && op != null) {
+            next_op = op.next;
+            op.next = m_node.next;     // 5
+            m_node.next = op;
+            prev = m_node.next;
+            m_node = m_node.next.next;          // 2 
+            op = next_op;
+        }
+        /* nothing to do for this is longer than operand  
+        // while (m_node != null) { } } */
+        if (op != null) {
+            prev.next = op; 
+        }
+        operand.head = null;
+    }
     /* solution q2 */
     public void q2_reverse() {  
         ex4_reverse();
@@ -74,6 +134,41 @@ public class MyTrickyLinkedList extends MyLinkedList {
             tmp.add(val);
         }
         head = tmp.head;        
+    }
+    public int ex5_nFromEnd(int n) {
+        int s = size() + 1;
+        Node cur = head;
+        int cnt = 1;
+        while (cnt < (s - n)) {
+            cur = cur.next;
+            cnt++;
+        }
+        return cur.data;
+    }
+    public int ex5_nFromEnd_alternate(int n) {
+        // have a reference, right, refers to nth node away from head
+        // have another reference, left, (n node behind right)
+        // step by step move left and right to the right until right reaches the end of the list
+        // left is referring to the nth from end
+        return 0;
+    }
+    public int ex6_middle_of_list() {
+        Node front = head;
+        Node behind = head;
+        while (front != null && front.next != null) {
+            front = front.next.next;
+            behind = behind.next;
+        }
+        return behind.data;
+    }
+    public int ex6_middle_using_size() {
+        int mid = size() / 2;
+        Node cur = head;
+        for (int i = 0; i < mid; i++) {
+            cur = cur.next;
+        }
+        return cur.data;
+        // System.out.println("mid " + size() / 2);
     }
     /* solution q3 */
     public void q3_remove_dup() {
@@ -180,6 +275,65 @@ public class MyTrickyLinkedList extends MyLinkedList {
         }
     
         return dummyHead.next;
+    }
+    public void ex9_revK_prev_curr_next(int k) {
+        // https://www.geeksforgeeks.org/reverse-a-linked-list-in-groups-of-given-size/
+        Node dummy = new Node(-1);
+        dummy.next = head;
+
+        Node prev = dummy;
+        Node curr = dummy;
+        Node next = dummy;
+        int count = size();
+
+        while (next != null) { 
+            curr = prev.next;
+            next = curr.next; 
+
+            int numIter = count > k ? k : count;
+            for (int i = 1; i < numIter; i++) {
+                curr.next = next.next;
+                next.next = prev.next;
+                prev.next = next;
+                next = curr.next;  
+            }
+            prev = curr;
+            count -= k;
+        }
+        head = dummy.next;
+    }
+    public void ex9_revK(int k) {
+        int last = size() - 1;
+        int idx = 0;
+        int stop = 0;
+        int start = 0;
+        MyTrickyLinkedList tmp = new MyTrickyLinkedList();
+        while (idx <= last) {
+            start = idx;
+            stop = stop + k;
+            if (stop > last) {
+                stop = last + 1;
+                // System.out.println("idx " + idx + " start " + start + " stop " + stop);
+            }
+            for (int i = stop - 1; i >= start; i--) {
+                tmp.sub_ex9_append(this.getAt(i));
+                idx++;
+            }
+        }
+        this.head = tmp.head;
+        // System.out.println("revK " + tmp);
+    }
+    private void sub_ex9_append(int d) { // ex9
+        Node n = new Node(d);
+        if (head == null) {
+            head = n;
+        } else {
+            Node cur = head;
+            while (cur.next != null) {
+                cur = cur.next;
+            }
+            cur.next = n;
+        }
     }
     /* solutin q5 */
     public boolean q5_isPalindrome() {
