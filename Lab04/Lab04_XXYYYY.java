@@ -47,13 +47,13 @@ public class Lab04_XXYYYY {
     static void q3() {
         int [] d = {13,11,4,15,4};
         MyTrickyLinkedList lis = new MyTrickyLinkedList();
-        lis.insert(d);
+        lis.add(d); 
         System.out.println("before -> " + lis);
         lis.q3_remove_dup();
         System.out.println("after-> " + lis);
         int [] e = {13,11,15,4};
         lis = new MyTrickyLinkedList();
-        lis.insert(e);
+        lis.add(e);
         System.out.println("before -> " + lis);
         lis.q3_remove_dup();
         System.out.println("after-> " + lis);
@@ -99,8 +99,8 @@ public class Lab04_XXYYYY {
         // q1();
         // System.out.println("calling q2");
         // q2();
-        // System.out.println("calling q3");
-        // q3();
+        System.out.println("calling q3");
+        q3();
         // System.out.println("calling q4");
         // q4();        
         // System.out.println("calling q5");

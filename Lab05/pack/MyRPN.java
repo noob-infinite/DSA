@@ -16,7 +16,7 @@ public class MyRPN {
         StringTokenizer st = new StringTokenizer(rpn);
         while (st.hasMoreTokens()) {
             String t = st.nextToken();
-            System.out.println("token = " + t);
+            // System.out.println("token = " + t);
             if (isNumeric(t)) {
                 stack.push(Double.parseDouble(t));
             } else {
@@ -33,7 +33,7 @@ public class MyRPN {
                     stack.push(a/b);
                 }
             }
-            System.out.println("stack state " + stack);
+            // System.out.println("stack state " + stack);
         } //while
         return stack.pop();
     }

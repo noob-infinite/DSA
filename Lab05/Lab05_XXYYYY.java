@@ -24,6 +24,6 @@ static void demo_2() {
 }
     public static void main(String[] args) {
         demo_1();
-        demo_2();
+        // demo_2();
     }
 }
