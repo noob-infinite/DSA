@@ -7,7 +7,7 @@ public class MyArrayBasic {
 
     public MyArrayBasic() {
     }
-    public MyArrayBasic(int ... a) {
+    public MyArrayBasic(int ... a) { // (int [] a ... caller must new int[] {} 
         if (a == null) return;
         int firstN = a.length > MAX_SIZE ? MAX_SIZE : a.length;
         for (int idx = 0; idx < firstN; idx++) {
@@ -23,7 +23,7 @@ public class MyArrayBasic {
         return -1;
     }
 
-    public void insert_unordered(int d, int index) {
+    public void insert_unordered(int index, int d) {
         for (int i = size; i > index; i--)
             data[i] = data[i-1];
         data[index] = d;

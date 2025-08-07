@@ -1,5 +1,7 @@
 package Lab03.pack;
 
+import java.util.Arrays;
+
 public class MyArray extends MyArrayBasic{ 
     public MyArray(int capacity) {
         MAX_SIZE = capacity > 0 ? capacity : 1;
@@ -43,7 +45,8 @@ public class MyArray extends MyArrayBasic{
            return;
         super.delete(index);
     }   
-    public void insert(int d, int index) {
+    @Override
+    public void insert_unordered(int index, int d) {
         if (isFull())
             expandByK();
         if (size == 0) {
@@ -59,6 +62,24 @@ public class MyArray extends MyArrayBasic{
             data[index] = d;
             size++;
         }
+    }
+    public void insert(int d) {
+        if (isFull())
+            expandByK();
+        if (size == 0) {
+            data[0] = d;
+            size++;
+            return;
+        }
+        int idx = 0;
+        while (idx < size && data[idx] < d) {
+            idx++;
+        }
+        
+        for (int i = size; i > idx; i--)
+            data[i] = data[i-1];
+        data[idx] = d;
+        size++;
     }
     public int binarySearch(int d) {
         int a = 0, b = size - 1;

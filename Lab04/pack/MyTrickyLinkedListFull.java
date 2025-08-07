@@ -1,5 +1,8 @@
 package Lab04.pack;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class MyTrickyLinkedListFull extends MyLinkedList {
     
 
@@ -189,6 +192,22 @@ public class MyTrickyLinkedListFull extends MyLinkedList {
             }
             
             p1 = p1.next;
+        }
+    }
+    public void ex7_removeDupMap() {
+        if (head.next == null) 
+            return;
+        Set<Integer> set = new HashSet<>();
+        Node p1, p2;
+        p1 = head;
+        set.add(p1.data);
+        while (p1.next != null) { 
+            if (!set.contains(p1.next.data)) {
+                set.add(p1.data);
+                p1 = p1.next;
+                continue;
+            }
+            p1.next = p1.next.next; // skip
         }
     }
     /* solution q4 */

@@ -95,12 +95,12 @@ public class Lab04_XXYYYY {
         // demo_1();
         // System.out.println("calling demo_2");
         // demo_2(); 
-        // System.out.println("calling q1");
-        // q1();
+        System.out.println("calling q1");
+        q1();
         // System.out.println("calling q2");
         // q2();
-        System.out.println("calling q3");
-        q3();
+        // System.out.println("calling q3");
+        // q3();
         // System.out.println("calling q4");
         // q4();        
         // System.out.println("calling q5");

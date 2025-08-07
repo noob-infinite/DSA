@@ -10,9 +10,12 @@ public class Lab03_XXYYY {
     }
     static private void arrayBasic_demo_2() {
         MyArrayBasic demo = new MyArrayBasic();
-        demo.insert_unordered(9,0);
-        demo.insert_unordered(7,0);
-        demo.insert_unordered(5,0);
+        // demo.insert_unordered(9,0);
+        // demo.insert_unordered(7,0);
+        // demo.insert_unordered(5,0);
+        demo.insert_unordered(0,9);
+        demo.insert_unordered(0,7);
+        demo.insert_unordered(0,5);
         System.out.println( demo );
         System.out.println("5 is at " + demo.find(5));
         System.out.println( demo.getAt(1) );              
@@ -40,16 +43,17 @@ public class Lab03_XXYYY {
     }
 static void array_demo_5() {
     MyArray demo = new MyArray();
-    demo.insert(9,0);
-    demo.insert(7,0); 
-    demo.insert(8,0); // illegal skipped
-    demo.insert(5,0);
-    System.out.println( demo );
+    demo.insert_unordered(0,9);
+    demo.insert_unordered(0,7); 
+    demo.insert_unordered(0,8); // illegal skipped
+    demo.insert_unordered(0,5);
+    System.out.println(demo );
+    demo.insert(8);
     System.out.println("5 is at " + demo.binarySearch(5));
     System.out.println("4 is at " + demo.binarySearch(4)); // return -1 bec. insertion pos for 4 is (-1 +1 ) * -1 = 0
     int pos = demo.binarySearch(6);
-    System.out.println("6 is at " + pos);     // retrurn -2 bec. insertion pos for 6 is (-2 +1) * -1 = 1
-    demo.insert(6, -(pos+1));               //[5, 6, 7, 9]
+    System.out.println("6 is at " + pos);       // retrurn -2 bec. insertion pos for 6 is (-2 +1) * -1 = 1
+    demo.insert_unordered(6, -(pos+1));       //[5, 6, 7, 8, 9]
     System.out.println( demo );
 }
     static void array_demo_6() {
@@ -82,8 +86,8 @@ static void array_demo_5() {
         // arrayBasic_demo_3();
         // System.out.println("calling demo_4");
         // array_demo_4();
-        // System.out.println("calling demo_5");
-        // array_demo_5();
+        System.out.println("calling demo_5");
+        array_demo_5();
         // System.out.println("calling demo_X");
         // array_demo_6();
     }

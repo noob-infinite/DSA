@@ -1,5 +1,8 @@
 package Lab04.pack;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class MyTrickyLinkedList extends MyLinkedList {
     
 
@@ -20,12 +23,12 @@ public class MyTrickyLinkedList extends MyLinkedList {
             new_tail = new_head;
             new_head = new_head.next;
             i++;
-        } // tail is k step left to list's tail; new_tail is tail's left
+        } // tail is k step left to list's tail; 
+          //new_tail is tail's left
         Node tail = new_head;
         while (tail.next != null) {
             tail = tail.next;
         }
-        // System.out.println(size() + "," + (size() - k) + " new_head= " + new_head.data + " new_tail= " + new_tail.data + " tail= " + tail.data);
         tail.next = head;       // wrap
         new_tail.next = null;   // new tail
         head = new_head;
@@ -46,6 +49,18 @@ public class MyTrickyLinkedList extends MyLinkedList {
         // ex4_rev_slow();
     }
     private void ex4_reverse() {
+        Node prev = null;
+        Node curr = head;
+        Node next = null;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+    private void ex4_reverse_backup() {
         // no need 
         // if (size() == 2) {
         //     rear.next = null;
@@ -77,7 +92,7 @@ public class MyTrickyLinkedList extends MyLinkedList {
     }
     /* solution q3 */
     public void q3_remove_dup() {
-        ex7_removeDupBF();
+        ex7_removeDupMap();
     }
     public void ex7_removeDupBF() {
         Node p1, p2;
@@ -94,6 +109,22 @@ public class MyTrickyLinkedList extends MyLinkedList {
             }
             
             p1 = p1.next;
+        }
+    }
+    public void ex7_removeDupMap() {
+        if (head.next == null) 
+            return;
+        Set<Integer> set = new HashSet<>();
+        Node p1, p2;
+        p1 = head;
+        set.add(p1.data);
+        while (p1.next != null) { 
+            if (!set.contains(p1.next.data)) {
+                set.add(p1.data);
+                p1 = p1.next;
+                continue;
+            }
+            p1.next = p1.next.next; // skip
         }
     }
     /* solution q4 */
